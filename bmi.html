@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="bmi.css">
+</head>
+
+<body>
+    <div id="app" class="container">
+        <h2>BMI CALCULATOR</h2>
+            <div class="bmi-form">
+                <div class="input">
+                    <label>Enter Your Height (in cm):</label>
+                    <input type="text" v-model="height">
+                </div>
+                <div class="input">
+                    <label>Enter Your Weight (in kg):</label>
+                    <input type="text" v-model="weight">
+                </div>
+                <div class="input">
+                    <button @click="bmiCalculator">Submit</button>
+                </div>
+                <div class="input">
+                    <label id="input-result">BMI is:</label>
+                    <input type="text" :value="result">
+                </div>
+            </div>
+        <div  :id="[show? 'show': '']" class="box-container">
+            <span v-if="result < 18">Hey, your BMI is low. You can crack the normal BMI range by proper diet and exercises :).</span>
+            <span v-else-if="result >= 18 && result <=25">Hey, Congrates!!. Your BMI is normal range.</span>
+            <span v-else>Hey, your BMI is high. You can crack the normal BMI range by proper diet and exercises :).</span>
+            <!-- <span v-else></span> -->
+           
+        </div>  
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="bmi.js"></script>
+</body>
+
+</html>
